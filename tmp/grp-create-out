@@ -1,0 +1,11 @@
+{
+   "group" : {
+      "domain_id" : "default",
+      "name" : "mandar-group",
+      "links" : {
+         "self" : "https://10.144.164.80:5000/v3/groups/bfdad8b920f945e08c56df8af58d339e"
+      },
+      "description" : "mandar-group",
+      "id" : "bfdad8b920f945e08c56df8af58d339e"
+   }
+}

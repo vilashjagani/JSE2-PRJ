@@ -4,7 +4,7 @@ import urllib2
 import requests
 import sys
 #defined username ,project and URL for endpoint#####
-data = '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "cas.user1", "password": "Rjil@2017"}}}'
+data = '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "cas.user1", "password": "JSE@Rjil@2017"}}}'
 
 url = 'https://10.144.106.137:5000/v2.0/tokens'
 

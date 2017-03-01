@@ -11,7 +11,7 @@ echo " <table border="2" style="width:80%">
     <th><font color="#FFC300">User-name</font></th>
     <th><font color="#FFC300">User-id</font></th>
   </tr>"
-cat /usr/lib/cgi-bin/tmp/users  | awk {'print $NF'}  >  /usr/lib/cgi-bin/tmp/users-id
+cat /usr/lib/cgi-bin/tmp/users  | awk {'print $NF'} | grep -v admin >  /usr/lib/cgi-bin/tmp/users-id
     for i in `cat /usr/lib/cgi-bin/tmp/users-id`
        do
            grep $i$ /usr/lib/cgi-bin/tmp/users | awk {'print $1'} > /usr/lib/cgi-bin/tmp/users-f1

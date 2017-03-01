@@ -1,0 +1,9 @@
+backup_gigabytes
+backups
+gigabytes
+gigabytes_ceph
+per_volume_gigabytes
+snapshots
+snapshots_ceph
+volumes
+volumes_ceph

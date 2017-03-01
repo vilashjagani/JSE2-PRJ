@@ -1,0 +1,14 @@
+cores
+fixed_ips
+floating_ips
+injected_file_content_bytes
+injected_file_path_bytes
+injected_files
+instances
+key_pairs
+metadata_items
+ram
+security_group_rules
+security_groups
+server_group_members
+server_groups

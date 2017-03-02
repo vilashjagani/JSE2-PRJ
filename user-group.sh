@@ -14,7 +14,7 @@ echo " <form action="user-group-map-call.sh" method="get">
     <font color="#FFC300">Enter user RIL Email ID:</font>
     <input type="text" name="emailid" maxlength="120" size="30">"
 echo "<font color="#FFC300"> Group Name: </font><select name="grpname">"
-         for i in `cat /usr/lib/cgi-bin/tmp/groups | awk {'print $1'}`
+         for i in `cat /usr/lib/cgi-bin/tmp/groups | awk {'print $1'}| grep -v GRP_IAAS_ADMIN`
            do
              echo " <option value="$i">$i</option>"
           done

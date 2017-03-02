@@ -26,7 +26,6 @@ file1.close()
 #emailID = "vilash.jagani@ril.com"
 GrpID = sys.argv[1]
 emailID = sys.argv[2]
-Grpname = sys.argv[3]
 count = 0
 ocurcount = 0
 with open("tmp/ril-mapping.json","r+") as file2:
@@ -49,7 +48,7 @@ with open("tmp/ril-mapping.json","r+") as file2:
          else:
              count = count + 1
      if count == len(data1['mapping']['rules']):               
-        data1['mapping']['rules'].append({"remote": [{"type": "sAMAccountName"}, {"type": "EmailID", "any_one_of": [emailID]}], "local": [{"user": {"name": "{0}"}}, {"group": {"name": Grpname, "id": GrpID}}]})
+        data1['mapping']['rules'].append({"remote": [{"type": "sAMAccountName"}, {"type": "EmailID", "any_one_of": [emailID]}], "local": [{"user": {"name": "{0}"}}, {"group": {"id": GrpID}}]})
         file2.seek(0)
         json.dump(data1,file2)
         file2.truncate()

@@ -18,7 +18,7 @@ echo "<font color="#FFC300"> Poject Name: </font><select name="prjname">"
   done
 echo "</select>"
 echo "<font color="#FFC300"> Group Name: </font><select name="grpname">"
-  for i in `cat /usr/lib/cgi-bin/tmp/groups | awk {'print $1'}`
+  for i in `cat /usr/lib/cgi-bin/tmp/groups | awk {'print $1'} | grep -v GRP_IAAS_ADMIN`
   do
   echo " <option value="$i">$i</option>"
   done

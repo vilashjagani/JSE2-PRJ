@@ -20,7 +20,7 @@ TOKEN=`keystone --insecure token-get | grep id | grep -v 'tenant_id'| grep -v 'u
 curl -H "Content-Type: application/json" -s -X GET -H "X-Auth-Token: $TOKEN" https://$IP:5000/v3/groups -k  | json_pp| jshon -e groups -a -e name -u -i n -e id | paste - - |sed -e 's/"//g' > /usr/lib/cgi-bin/tmp/groups
 GRPID=`cat /usr/lib/cgi-bin/tmp/groups | grep $GRPNAME | awk {'print $2'}`
 
-python /usr/lib/cgi-bin/user-group-mapping.py $GRPID $EMAILID
+python /usr/lib/cgi-bin/user-group-mapping.py $GRPID $EMAILID $GRPNAME
 
 curl -H "Content-Type: application/json" --data @tmp/ril-mapping.json -s -X PATCH -H "X-Auth-Token: $TOKEN" https://$IP:5000/v3/OS-FEDERATION/mappings/keystone-idp-mapping -k > /usr/lib/cgi-bin/tmp/user-group-map-out 
 

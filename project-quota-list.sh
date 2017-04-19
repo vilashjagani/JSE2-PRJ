@@ -33,6 +33,24 @@ echo " <table border="2" style="width:80%">
         echo "<td><font color="#FFFFFF">`grep $i /usr/lib/cgi-bin/tmp/tenant-quota | awk {'print $2'} | sed -e 's/://g' | sed -e 's/,//g'` </font></td></tr>"
       done
 echo "</table>" 
+
+elif [ $RSRCNAME == "neutron" ] ;
+then
+curl -H "Content-Type: application/json" -s -X GET -H "X-Auth-Token: $TOKEN" https://$IP:9696/v2.0/quotas/$PRJID -k  | python -m json.tool > /usr/lib/cgi-bin/tmp/tenant-quota
+echo "<h1><font color="#FFC300"> Network Quota for Project  $PRJNAME </font></h1>"
+echo " <table border="2" style="width:80%">
+  <tr>
+    <th><font color="#FFC300">Resource-Name</font></th>
+    <th><font color="#FFC300">Values</font></th>
+  </tr>"
+   name=`cat /usr/lib/cgi-bin/tmp/tenant-quota | grep -v "quota_set" | grep -v id | grep -v { | grep -v } | awk {'print $1'}`
+   for i in $name;
+      do
+        echo "<tr><td><font color="#FFFFFF">`grep $i /usr/lib/cgi-bin/tmp/tenant-quota | awk {'print $1'} | sed -e 's/://g' | sed -e 's/"//g'` </font></td>"
+        echo "<td><font color="#FFFFFF">`grep $i /usr/lib/cgi-bin/tmp/tenant-quota | awk {'print $2'} | sed -e 's/://g' | sed -e 's/,//g'` </font></td></tr>"
+      done
+echo "</table>"
+
          
 else
 

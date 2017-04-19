@@ -28,6 +28,20 @@ echo "<h1><font color="#FFC300"> Compute Quota for Project  $PRJNAME </font></h1
    echo "<br>"
   done
 
+elif [ $RSRCNAME == "neutron" ] ;
+then
+echo " <form action="project-quota-update-neutron-update.sh" method="get">"
+curl -H "Content-Type: application/json" -s -X GET -H "X-Auth-Token: $TOKEN" https://$IP:9696/v2.0/quotas/$PRJID -k  | python -m json.tool > /usr/lib/cgi-bin/tmp/tenant-quota-neutron
+echo "<h1><font color="#FFC300"> Network Quota for Project  $PRJNAME </font></h1>"
+   echo "<font color="#FFC300">Project-Name: <input type="text" name="prjname" value="$PRJNAME" ></font><br>"
+   for i in `cat neutron-resourece-name`
+   do
+  echo " <font color="#FFC300">$i: <input type="text" name="$i" value=`grep $i /usr/lib/cgi-bin/tmp/tenant-quota-neutron |awk {'print $2'} | sed -e 's/://g' | sed -e 's/,//g'`> </font>"
+   echo "<br>"
+  done
+
+
+
 else
    echo " <form action="project-quota-update-cinder-update.sh" method="get">"
 curl -H "Content-Type: application/json" -s -X GET -H "X-Auth-Token: $TOKEN" https://$IP:8776/v1/$ADMID/os-quota-sets/$PRJID -k  | python -m json.tool > /usr/lib/cgi-bin/tmp/tenant-quota-cinder

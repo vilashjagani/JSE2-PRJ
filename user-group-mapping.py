@@ -4,11 +4,11 @@ import urllib2
 import requests
 import sys
 #defined username ,project and URL for endpoint#####
-data = '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "cas.user1", "password": "JSE@Rjil@2017"}}}'
+data = '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "cas.user1", "password": "JPE@Rjil@2017"}}}'
 
-url = 'https://10.144.106.137:5000/v2.0/tokens'
+url = 'https://10.144.164.80:5000/v2.0/tokens'
 
-url2 = 'https://10.144.106.137:5000/v3/OS-FEDERATION/mappings/keystone-idp-mapping'
+url2 = 'https://10.144.164.80:5000/v3/OS-FEDERATION/mappings/keystone-idp-mapping'
 #Generate TOken for user first#####
 req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
 f = urllib2.urlopen(req)

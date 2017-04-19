@@ -18,6 +18,7 @@ echo "</select>"
 echo "<font color="#FFC300">Type of Resource: </font><select name="typersource">"
       echo "<option value="nova">Nova</option>"
       echo "<option value="cinder">Cinder</option>" 
+      echo "<option value="neutron">Neutron</option>" 
 echo "<input type="submit" value="Submit">"
 
 echo "</form>" 
